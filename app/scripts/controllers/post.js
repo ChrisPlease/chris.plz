@@ -14,6 +14,7 @@ app.controller('PostCtrl', function($scope, Post, Auth, toaster, $routeParams, $
 	$scope.createPost = function() {
 		$scope.post.author   = Auth.user.profile.name;
 		$scope.post.authorId = Auth.user.uid;
+		$scope.post.edited   = false;
 
 		Post.createPost($scope.post).then(function(ref) {
 			toaster.pop('success', 'post added successfully.');

@@ -30,8 +30,11 @@ app.factory('Post', function(FURL, $firebaseArray, $firebaseObject, Auth) {
 
 		editPost: function(post) {
 			var t = this.getPost(post.$id);
+
+			console.log(post);
 			console.log(t);
-			// return t.set({title: post.title, content: post.content});
+
+			return ref.child('posts').child(post.$id).$save({post: post.title, content: post.content, edited: true});
 		},
 
 		deletePost: function(post) {
