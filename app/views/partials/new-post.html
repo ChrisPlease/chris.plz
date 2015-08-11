@@ -1,0 +1,33 @@
+<div class="modal fade" id="postModal" ng-controller="PostCtrl">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="panel-primary">
+				<div class="panel-heading">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+					<h3 class="panel-title">New Post
+					</h3>
+				</div>
+				<div class="panel-body">
+					
+					<form ng-submit="createPost()">
+						<div class="input-group">
+							<div class="input-group-addon">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</div>
+							<input type="text" ng-model="post.title" class="form-control" placeholder="Post Title" required />
+						</div>
+						<br />
+						<div class="input-group">
+							<textarea ng-model="post.content" class="form-control"></textarea>
+						</div>
+						<br />
+						<div class="input-group">
+							<input type="submit" value="Post Now" class="btn btn-primary">
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
