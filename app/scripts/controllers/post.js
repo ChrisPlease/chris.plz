@@ -8,6 +8,11 @@ app.controller('PostCtrl', function($scope, Post, Auth, toaster, $routeParams, $
 	if($routeParams.postId) {
 		var post = Post.getPost($routeParams.postId);
 		$scope.post = post;
+
+		$scope.comments = Post.comments($routeParams.postId);
+
+		console.log($scope.comments);
+
 	}
 
 

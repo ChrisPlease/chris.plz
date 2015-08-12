@@ -20,8 +20,8 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">
-					{{post.title}} <small>&mdash; by {{post.author}}</small>
-					<span class="badge pull-right" ng-show="currentUser === post.authorId" ng-click="deletePost(post)">&times;</span>
+					{{post.title}} <small>&mdash; by {{post.author}} <i ng-if="post.edited">(edited)</i></small>
+					<span class="badge pull-right" ng-show="currentUser == post.authorId" ng-click="deletePost(post)">&times;</span>
 					<span class="badge pull-right" data-toggle="modal" data-target="#editModal">edit</span>
 				</h3>
 			</div>

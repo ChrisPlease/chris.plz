@@ -20,28 +20,38 @@ app.factory('Post', function(FURL, $firebaseArray, $firebaseObject, Auth) {
 						postId: newPost.key()
 					};
 
-					var userPostsRef = ref.child('user_posts').child(post.authorId);
+					var userPosts = $firebaseArray(ref.child('user_posts').child(post.authorId));
 
-					userPostsRef.set(obj);
+					userPosts.$add(obj);
 
 					return newPost;
 				});
 		},
 
 		editPost: function(post) {
+
 			var t = this.getPost(post.$id);
 
-			console.log(post);
-			console.log(t);
+			t.$loaded().then(function() {
+				t.title    = post.title;
+				t.content  = post.content;
+				t.edited   = true;
+				t.editTime = Firebase.ServerValue.TIMESTAMP;
 
-			return ref.child('posts').child(post.$id).$save({post: post.title, content: post.content, edited: true});
+				t.$save();
+			});
 		},
 
 		deletePost: function(post) {
 
 			return posts.$remove(post);
 
+		},
+
+		comments: function(postId) {
+			return $firebaseArray(ref.child('comments').child(postId));
 		}
+		
 	};
 
 	return Post;

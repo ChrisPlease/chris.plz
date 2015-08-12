@@ -12,6 +12,50 @@
 			<div class="panel-body">
 				{{post.content}}
 			</div>
+
+			<hr>
+
+
+			<!-- Comment section -->
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">	
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Comments</h3>
+						</div>
+						<div class="panel-body">
+							<blockquote class="clearfix" ng-repeat="comment in comments">
+								<p>{{ 'comment.content' }}</p>
+								<footer><cite><i>{{ 'comment.author' }}</i></cite></footer>
+							</blockquote>
+
+							<blockquote ng-if="commentText">
+								<p>{{ commentText }}</p>		
+								<footer ng-if="commentAuthor"><cite><i>{{ commentAuthor }}</i></cite></footer>
+							</blockquote>
+
+							<form ng-submit="addComment()">
+								<div class="input-group">
+									<textarea ng-model="commentText" class="form-control"></textarea>
+								</div>
+								<br />
+								<div class="input-group">
+									<div class="input-group-addon">
+										<span class="glyphicon glyphicon-user"></span>
+									</div>
+									<input type="text" class="form-control" ng-model="commentAuthor" />
+								</div>
+								<br />
+								<div class="input-group">
+									<input type="submit" value="Add Comment" class="btn btn-primary" />
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
 		</div>
 	</div>
 </div>
