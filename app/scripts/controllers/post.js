@@ -5,16 +5,6 @@ app.controller('PostCtrl', function($scope, Post, Auth, toaster, $routeParams, $
 	$scope.posts = Post.all;
 	$scope.currentUser = Auth.user.uid;
 
-	if($routeParams.postId) {
-		var post = Post.getPost($routeParams.postId);
-		$scope.post = post;
-
-		$scope.comments = Post.comments($routeParams.postId);
-
-		console.log($scope.comments);
-
-	}
-
 
 	$scope.createPost = function() {
 		$scope.post.author   = Auth.user.profile.name;
@@ -36,6 +26,12 @@ app.controller('PostCtrl', function($scope, Post, Auth, toaster, $routeParams, $
 
 	$scope.deletePost = function(post) {
 		Post.deletePost(post);
+	};
+
+	$scope.addComment = function(comment) {
+		Post.addComment($scope.comment).then(function() {
+			console.log(comment.content, 'comment added');
+		});
 	};
 
 });

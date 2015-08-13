@@ -2,12 +2,28 @@
 	<div class="col-md-12">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Your Posts</h3>
+				<h3 class="panel-title">Your Profile</h3>
 			</div>
 			<div class="panel-body">
-				<ul class="list-group">
-					<li class="list-group-item" ng-repeat="post in posts"><a ng-href="#/blog/{{post.postId}}">{{post.title}}</a></li>
-				</ul>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-4">
+						<form ng-submit="updateProfile(uid)">
+							<div class="form-group">
+								<label>Name</label>
+								<input type="text" ng-model="profile.name" class="form-control" />
+							</div>
+							<div class="form-group">
+								<label>Date of Birth</label>
+								<input type="date" ng-model="profile.dob" class="form-control" />
+							</div>
+							<div class="form-group">
+								<label>Profession</label>
+								<input type="text" ng-model="profile.profession" class="form-control" />
+							</div>
+							
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -16,14 +32,19 @@
 	<div class="col-md-6">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Panel 2</h3>
+				<h3 class="panel-title">Your Posts</h3>
+			</div>			
+			<div class="panel-body">
+				<ul class="list-group">
+					<li class="list-group-item" ng-repeat="post in posts"><a ng-href="#/blog/{{post.$id}}">{{post.title}}</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-6">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">Panel 3</h3>
+				<h3 class="panel-title">Your Comments</h3>
 			</div>
 		</div>
 	</div>

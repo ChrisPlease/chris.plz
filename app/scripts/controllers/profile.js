@@ -2,8 +2,16 @@
 
 app.controller('ProfileCtrl', function($scope, Auth, Profile, Post) {
 
-	var uid   = Auth.user.uid;
-	var posts = Profile.getUserPosts(uid);
+	var uid     = Auth.user.uid;
+	var posts   = Profile.getUserPosts(uid);
+	var profile = Profile.getProfile(uid);
+
+	profile.$loaded().then(function() {
+		$scope.profile = profile;
+		
+		console.log($scope.profile);
+	});
+
 
 	$scope.posts = [];
 

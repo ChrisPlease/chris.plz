@@ -49,7 +49,14 @@ app.factory('Post', function(FURL, $firebaseArray, $firebaseObject, Auth) {
 		},
 
 		comments: function(postId) {
-			return $firebaseArray(ref.child('comments').child(postId));
+			var comments = $firebaseArray(ref.child('comments').child(postId));
+
+			return comments;
+		},
+
+		addComment: function(comment) {
+			comment.datetime = Firebase.ServerValue.TIMESTAMP;
+			Post.comments.$add(comment);
 		}
 		
 	};

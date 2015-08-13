@@ -36,7 +36,7 @@ var app = angular
       })
       .when('/blog/:postId', {
         templateUrl: 'views/post.html',
-        controller: 'PostCtrl'
+        controller: 'PostViewCtrl'
       })
       .when('/login', {
         templateUrl: 'views/login.html',

@@ -13,7 +13,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Great+Vibes|Fredericka+the+Great">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.css" />
   </head>
   <body ng-app="chrisplzApp">
@@ -24,26 +24,26 @@
     <!-- Add your site or application content here -->
     <toaster-container toaster-options="{'time-out' : 1000, 'close-button' : true}"></toaster-container>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h1 class="site-title">Chris Please</h1>
-            </div>
+    <div id="sidebar" class="col-md-3">
+        <div class="vcenter" ng-include="'views/nav.html'"></div>
+    </div>
+    <div class="col-md-9 col-md-offset-3">
+        <div class="logo-container">
+          <div class="logo">
+            <span class="logo-span">C<span class="sr-only">hris</span></span>
+            <span class="logo-span">P<span class="sr-only">lease</span></span>
+          </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div ng-include="'views/nav.html'"></div>
-            </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-md-offset-2">
                 <div ng-view=""></div>
             </div>
         </div>
-    </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+        <div class="row">
+            <div class="footer">
+            <p>Made with <span class="glyphicon glyphicon-heart"></span>.</p>
+            </div>
+        </div>
     </div>
 
 
@@ -92,7 +92,11 @@
         <script src="scripts/controllers/auth.js"></script>
         <script src="scripts/controllers/nav.js"></script>
         <script src="scripts/controllers/post.js"></script>
+        <script src="scripts/controllers/postview.js"></script>
         <script src="scripts/controllers/profile.js"></script>
+
+        <!-- Directives -->
+        <script src="scripts/directives/nav.js"></script>
         <!-- endbuild -->
 </body>
 </html>

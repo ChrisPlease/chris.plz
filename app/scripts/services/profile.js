@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Profile', function(FURL, $firebaseArray, $q, Auth) {
+app.factory('Profile', function(FURL, $firebaseArray, $firebaseObject, $q, Auth) {
 
 
 	var ref   = new Firebase(FURL);
@@ -21,6 +21,9 @@ app.factory('Profile', function(FURL, $firebaseArray, $q, Auth) {
 				});
 
 			return defer.promise;
+		},
+		getProfile: function(uid) {
+			return $firebaseObject(ref.child('profile').child(uid));
 		}
 	};
 
