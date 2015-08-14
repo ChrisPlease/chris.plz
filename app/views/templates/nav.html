@@ -1,0 +1,35 @@
+<div id="sidebar" ng-controller="NavCtrl">
+  <div class="vcenter">
+    <div class="sidebar">
+      <ul class="nav">
+        <li><a href="#/">Home</a></li>
+        <li><a ng-href="#/blog">Blog</a></li>
+        <li><a ng-href="#/about">About</a></li>
+        <li><a ng-href="#/portfolio">Portfolio</a></li>
+        <li><a ng-href="#/contact">Contact</a></li>
+      </ul>
+
+      <div class="panel panel-default" ng-show="signedIn()">
+        <div class="panel-heading">
+          <h5 class="panel-title">Dashboard</h5>
+        </div>
+        <div class="panel-body">
+
+          <ul class="dash nav">
+            <li><a href="" data-toggle="modal" data-target="#postModal">Create a Post</a></li>
+            <li><a href="#/profile">View My Profile</a></li>
+            <li><a ng-click="logout()" href="">Logout</a></li>
+          </ul>
+          
+        </div>
+      </div>
+
+      <div class="logo-container">
+        <div class="logo">
+          <span class="logo-span">C<span class="sr-only">hris</span></span>
+          <span class="logo-span">P<span class="sr-only">lease</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

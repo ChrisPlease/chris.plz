@@ -24,6 +24,12 @@ app.factory('Profile', function(FURL, $firebaseArray, $firebaseObject, $q, Auth)
 		},
 		getProfile: function(uid) {
 			return $firebaseObject(ref.child('profile').child(uid));
+		},
+
+		getUserComments: function(uid) {
+			var defer = $q.defer();
+
+			
 		}
 	};
 

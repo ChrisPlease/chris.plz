@@ -50,13 +50,16 @@ app.factory('Post', function(FURL, $firebaseArray, $firebaseObject, Auth) {
 
 		comments: function(postId) {
 			var comments = $firebaseArray(ref.child('comments').child(postId));
-
 			return comments;
 		},
 
-		addComment: function(comment) {
-			comment.datetime = Firebase.ServerValue.TIMESTAMP;
-			Post.comments.$add(comment);
+		addComment: function(postId, comment) {
+			var postComments = this.comments(postId);
+
+			postComments.$loaded().then(function() {
+				postComments.$add(comment);
+			});
+
 		}
 		
 	};

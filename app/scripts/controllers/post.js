@@ -4,6 +4,7 @@ app.controller('PostCtrl', function($scope, Post, Auth, toaster, $routeParams, $
 	
 	$scope.posts = Post.all;
 	$scope.currentUser = Auth.user.uid;
+	$scope.signedIn = Auth.signedIn;
 
 
 	$scope.createPost = function() {
@@ -26,12 +27,6 @@ app.controller('PostCtrl', function($scope, Post, Auth, toaster, $routeParams, $
 
 	$scope.deletePost = function(post) {
 		Post.deletePost(post);
-	};
-
-	$scope.addComment = function(comment) {
-		Post.addComment($scope.comment).then(function() {
-			console.log(comment.content, 'comment added');
-		});
 	};
 
 });

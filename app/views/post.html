@@ -5,6 +5,8 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">{{post.title}} <small>by {{post.author}}</small>
+					<span class="badge pull-right" ng-show="signedIn()" ng-click="deletePost(post)">&times;</span>
+					<span class="badge pull-right" ng-show="signedIn()" data-toggle="modal" data-target="#editModal">edit</span>
 					</h3>
 			</div>
 
@@ -24,8 +26,9 @@
 							<h3 class="panel-title">Comments</h3>
 						</div>
 						<blockquote class="clearfix" ng-repeat="comment in comments">
-							<p>{{ 'comment.content' }}</p>
-							<footer><cite><i>{{ 'comment.author' }}</i></cite></footer>
+							<span class="label label-danger label-as-badge pull-right " ng-show="signedIn()" ng-click="deleteComment(comment)"><i>(delete)</i></span>
+							<p>{{ comment.text }}</p>
+							<footer><cite><i>{{ comment.author }}</i></cite></footer>
 						</blockquote>
 
 						<blockquote ng-if="commentText">
@@ -35,14 +38,14 @@
 
 						<form ng-submit="addComment()">
 							<div class="input-group">
-								<textarea ng-model="commentText" class="form-control"></textarea>
+								<textarea ng-model="text" class="form-control"></textarea>
 							</div>
 							<br />
 							<div class="input-group">
 								<div class="input-group-addon">
 									<span class="glyphicon glyphicon-user"></span>
 								</div>
-								<input type="text" class="form-control" ng-model="commentAuthor" />
+								<input type="text" class="form-control" ng-model="author" />
 							</div>
 							<br />
 							<div class="input-group">

@@ -3,12 +3,11 @@
 app.controller('PostViewCtrl', function($scope, Post, Auth, $routeParams, $location) {
 	
 	$scope.post = Post.getPost($routeParams.postId);
+	$scope.signedIn = Auth.signedIn;
 
-	Post.comments($scope.post.$id).$loaded().then(function(comments) {
-		$scope.comments = comments;
+	$scope.comments = Post.comments($scope.post.$id);
+	$scope.author = 'Anonymous';
 
-		console.log($scope.comments.length);
-	});
 
 	$scope.editPost = function(post) {
 		Post.editPost(post);
@@ -18,15 +17,22 @@ app.controller('PostViewCtrl', function($scope, Post, Auth, $routeParams, $locat
 		Post.deletePost(post);
 	};
 
-	$scope.addComment = function() {
 
+
+	$scope.addComment = function() {
 		var comment = {
-			text: $scope.commentText,
-			author: $scope.commentAuthor
+			text: $scope.text,
+			author: $scope.author
 		};
-		Post.comments.$add(comment).then(function() {
-			console.log(comment.text, 'comment added');
+
+		Post.addComment($scope.post.$id, comment).then(function() {
+			$scope.text = '';
+			$scope.author = 'Anonymous';
 		});
+	};
+
+	$scope.deleteComment = function(comment) {
+		$scope.comments.$remove(comment);
 	};
 
 });
