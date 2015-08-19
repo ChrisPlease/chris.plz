@@ -12,7 +12,7 @@
 
 
 			<div class="panel-body">
-				{{post.content}}
+				<div ng-bind-html="post.content"></div>
 			</div>
 
 			<hr>
@@ -59,4 +59,9 @@
 
 		</div>
 	</div>
+
+	
+
+
+  <div ng-include="'views/partials/edit-post.html'"></div>
 </div>

@@ -16,6 +16,7 @@ var app = angular
     'ngRoute',
     'firebase',
     'toaster',
+    'ui.tinymce',
     'ngSanitize',
     'ngTouch'
   ])

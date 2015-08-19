@@ -14,6 +14,7 @@ app.controller('PostViewCtrl', function($scope, Post, Auth, $routeParams, $locat
 	};
 
 	$scope.deletePost = function(post) {
+		console.log(post);
 		Post.deletePost(post);
 	};
 

@@ -8,8 +8,6 @@ app.controller('ProfileCtrl', function($scope, Auth, Profile, Post) {
 
 	profile.$loaded().then(function() {
 		$scope.profile = profile;
-		
-		console.log($scope.profile);
 	});
 
 
@@ -18,7 +16,7 @@ app.controller('ProfileCtrl', function($scope, Auth, Profile, Post) {
 	posts.then(function(posts) {
 		angular.forEach(posts, function(obj) {
 
-			return $scope.posts.push(Post.getPost(obj.postId));
+			return $scope.posts.push(Post.getPost(obj.$value));
 			
 		});
 	});

@@ -26,6 +26,7 @@ app.controller('PostCtrl', function($scope, Post, Auth, toaster, $routeParams, $
 	};
 
 	$scope.deletePost = function(post) {
+		// console.log(post);
 		Post.deletePost(post);
 	};
 

@@ -1,6 +1,6 @@
 <div class="row" ng-hide="posts && posts.length > 0">
 	<div class="col-md-12">
-		<div class="panel panel-primary">
+		<div class="panel panel-inverse">
 			<div class="panel-heading">
 				<h3 class="panel-title">Posts</h3>
 			</div>
@@ -17,7 +17,7 @@
 
 <div class="row" ng-repeat="post in posts | orderBy: 'datetime':true">
 	<div class="col-md-12">
-		<div class="panel panel-primary">
+		<div class="panel panel-inverse">
 			<div class="panel-heading">
 				<h3 class="panel-title">
 					{{post.title}} <small>&mdash; by {{post.author}} <i ng-if="post.edited">(edited)</i></small>
@@ -25,12 +25,9 @@
 				</h3>
 			</div>
 			<div class="panel-body">
-				<p>{{post.content}}</p>
+				<div ng-bind-html="post.content"></div>
 				<a ng-href="#/blog/{{post.$id}}" class="btn btn-primary pull-right">Read More &rarr;</a>
 			</div>
 		</div>
 	</div>
-
-
-  <div ng-include="'views/partials/edit-post.html'"></div>
 </div>

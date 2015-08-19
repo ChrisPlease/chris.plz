@@ -1,9 +1,10 @@
 'use strict';
 
 app.factory('Post', function(FURL, $firebaseArray, $firebaseObject, Auth) {
-	var ref = new Firebase(FURL);
-	var posts = $firebaseArray(ref.child('posts'));
 
+	var ref   = new Firebase(FURL);
+	var posts = $firebaseArray(ref.child('posts'));
+	var uid   = Auth.user;
 
 	var Post = {
 		all: posts,
@@ -43,9 +44,16 @@ app.factory('Post', function(FURL, $firebaseArray, $firebaseObject, Auth) {
 		},
 
 		deletePost: function(post) {
+			//var postArr  = $firebaseArray(ref.child('user_posts').child(post.authorId));
+			// var postRef    = userPosts.$keyAt(post.$id);
+			//
+			//postArr.$loaded().then(function() {
+			//	var index = postArr;
 
+			//	console.log(index);
+			//});
+			
 			return posts.$remove(post);
-
 		},
 
 		comments: function(postId) {

@@ -12,9 +12,10 @@ app.directive('cpPrimaryNav', ['$document', 'Nav', function($document, Nav) {
 			btn  = angular.element('.menu-toggle');
 			body = angular.element('body').addClass('cp-menu-push');
 
-			console.log(btn);
+			// console.log(btn);
 
 			btn.click(function() {
+				body.toggleClass('menu-open');
 				return Nav.push(elem, btn.selector);
 			});
 		}
