@@ -1,0 +1,21 @@
+
+<div class="row">
+	<a href="" data-toggle="modal" data-target="#projectModal" class="btn btn-success pull-right">Add a New Entry</a>
+	<br />
+</div>
+<br>
+<div class="row">
+
+	<div class="panel panel-default" ng-hide="projects.length > 0">
+		<div class="panel-body">
+			There are no projects available at this time.
+		</div>
+	</div>
+
+</div>
+<div class="row" ng-repeat="project in projects | orderBy: 'datetime':true">
+	<cp-project></cp-project>
+</div>
+
+
+<div ng-include="'views/partials/new-project.html'"></div>

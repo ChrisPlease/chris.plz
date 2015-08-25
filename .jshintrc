@@ -20,6 +20,7 @@
   "globals": {
     "angular": false,
     "app": true,
-    "Firebase": true
+    "Firebase": true,
+    "filepicker": true
   }
 }

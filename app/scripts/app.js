@@ -27,10 +27,6 @@ var app = angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
       .when('/blog', {
         templateUrl: 'views/blog.html',
         controller: 'PostCtrl'
@@ -38,6 +34,14 @@ var app = angular
       .when('/blog/:postId', {
         templateUrl: 'views/post.html',
         controller: 'PostViewCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
+      })
+      .when('/portfolio', {
+        templateUrl: 'views/portfolio.html',
+        controller: 'PortfolioCtrl'
       })
       .when('/login', {
         templateUrl: 'views/login.html',

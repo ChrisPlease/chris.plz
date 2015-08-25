@@ -1,0 +1,16 @@
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ project.title }}
+		<span ng-show="signedIn()" class="pull-right label label-danger label-as-badge" style="padding-left: 4px" ng-click="deleteProject(project)">(delete)</span>
+		<span ng-show="signedIn()" class="pull-right label label-success label-as-badge" ng-click="deleteProject(project)">(edit)</span>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<div class="overlay">
+			<h2>{{ project.title }}</h2>
+			<p class="builtwith">WordPress</p>
+		</div>
+		<img ng-src="{{ project.image }}" alt="">
+	</div>
+</div>

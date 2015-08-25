@@ -1,0 +1,32 @@
+<div class="modal fade" id="projectModal" ng-controller="PortfolioCtrl">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+
+			<div class="panel panel-default" ng-show="signedIn()">
+				<div class="panel-heading">
+					<h3 class="panel-title">Add a New Entry</h3>
+				</div>
+				<div class="panel-body">
+					<form ng-submit="createProject(project)">
+						<div class="input-group">
+							<div class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></div>
+							<input type="text" ng-model="project.title" placeholder="Title" required class="form-control" />
+						</div>
+						<br />
+						<div class="input-group">
+							<div class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></div>
+							<cp-file-picker max-height="400" max-width="600" ng-model="project.image" accept="image/*"></cp-file-picker>
+						</div>
+						<br />
+						<div class="input-group project-preview">
+							<a href="" ng-show="project.image.length > 0" class="label label-as-badge label-danger pull-right">(clear)</a>
+							<cp-preview></cp-preview>
+						</div>
+						<input class="btn btn-primary" type="submit" value="Submit">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
