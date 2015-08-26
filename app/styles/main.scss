@@ -21,18 +21,31 @@ html, body {
 body {
   position: relative;
   background-color: #bada55;
-  background-color: #ccc;
-  left: 0px;
-  transition: .4s ease-in-out;
-  overflow-x: hidden;
-  &.menu-open {
-    left: 300px;
-    overflow-x: hidden;
-  }
+  // background-color: #ccc;
+  padding-bottom: 64px;
 }
 
 canvas, img {
   width: 100%;
+}
+
+.view-animate-container {
+  position: relative;
+}
+.view-animate {
+  opacity: 1;
+  transition: .2s ease-in-out;
+}
+
+.view-animate.ng-enter.ng-enter-active {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.view-animate.ng-leave-active, .view-animate.ng-enter {
+  opacity: 0;
 }
 
 /* Bootstrap Overrides */
@@ -171,7 +184,7 @@ cp-project {
 
 
 #sidebar {
-	background: rgba(0, 0, 0, .75);
+	background: rgba(0, 0, 0, .85);
 	height: 100%;
   width: 300px;
   left: -300px;
@@ -180,6 +193,7 @@ cp-project {
   position: fixed;
   display: table;
   transition: .4s ease-in-out;
+  z-index: 499;
   &.active {
     left: 0;
   }
@@ -244,6 +258,16 @@ cp-project {
 
 .navbar-nav > li {
   float: none !important;
+}
+
+/*  Footer Styles */
+
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 64px;
 }
 
 /* Image Preview */

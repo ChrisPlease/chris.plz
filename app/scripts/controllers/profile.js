@@ -16,7 +16,7 @@ app.controller('ProfileCtrl', function($scope, Auth, Profile, Post) {
 	posts.then(function(posts) {
 		angular.forEach(posts, function(obj) {
 
-			return $scope.posts.push(Post.getPost(obj.$value));
+			return $scope.posts.push(Post.getPost(obj.postId));
 			
 		});
 	});

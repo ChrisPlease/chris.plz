@@ -37,12 +37,9 @@
         </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="view-animate" ng-view=""></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="footer col-xs-12">
-            <p>Made with <span class="glyphicon glyphicon-heart"></span>.</p>
+                <div class="view-animate-container">
+                    <div class="view-animate" ng-view=""></div>
+                </div>
             </div>
         </div>
     </div>
@@ -51,6 +48,9 @@
   <div ng-include="'views/partials/new-post.html'"></div>
 
 
+    <div class="footer">
+        <p>Made with <span class="glyphicon glyphicon-heart"></span>.</p>
+    </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
