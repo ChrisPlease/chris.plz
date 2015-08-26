@@ -3,6 +3,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "animations.scss";
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -11,23 +13,48 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 }
 
 html, body {
-	height: 100%;
+	min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   position: relative;
-  padding: 0;
   background-color: #bada55;
   background-color: #ccc;
-  // background-image: url('http://loremflickr.com/1600/1000/develop');
-  // background-position: center center;
-  // background-attachment: fixed;
-  // background-size: cover;
+  left: 0px;
+  transition: .4s ease-in-out;
+  overflow-x: hidden;
+  &.menu-open {
+    left: 300px;
+    overflow-x: hidden;
+  }
 }
 
+canvas, img {
+  width: 100%;
+}
+
+/* Bootstrap Overrides */
+
+.panel-inverse {
+  > .panel-heading {
+    background: black;
+    color: white;
+  }
+}
 
 cp-project {
   display: block;
+}
+
+.img-preview {
+  position: relative;
+  .badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
 }
 
 .vcenter {
@@ -100,14 +127,62 @@ cp-project {
 	}
 }
 
-.navbar-nav > li {
-  float: none !important;
+
+
+/* Menu Toggle */
+
+.menu-toggle {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  display: block;
+  span {
+    position: absolute;
+    background: black;
+    height: 6px;
+    width: 80%;
+    left: 10%;      
+      &:first-child {
+        animation: topClosed .4s forwards;
+      }
+      &:nth-child(2) {
+        animation: middleClosed .4s forwards;
+      }
+      &:nth-child(3) {
+        animation: bottomClosed .4s forwards;
+      }
+  }
+  &.active {
+    span {
+      &:first-child {
+        animation: topOpen .4s forwards;
+      }
+      &:nth-child(2) {
+        animation: middleOpen .4s forwards;
+      }
+      &:nth-child(3) {
+        animation: bottomOpen .4s forwards;
+      }
+    }
+  }
 }
+
 
 #sidebar {
 	background: rgba(0, 0, 0, .75);
 	height: 100%;
-  width: 400px;
+  width: 300px;
+  left: -300px;
+  bottom: 0;
+  top: 0;
+  position: fixed;
+  display: table;
+  transition: .4s ease-in-out;
+  &.active {
+    left: 0;
+  }
   .nav {
     > li > a {
       &:hover, &:focus, &:active {
@@ -156,6 +231,21 @@ cp-project {
   }
 }
 
+/* Nav Styles */
+
+.nav {
+  width: 90%;
+  margin: 0 auto;
+  a {
+    font-size: 24px;
+    font-weight: 100;
+  }
+}
+
+.navbar-nav > li {
+  float: none !important;
+}
+
 /* Image Preview */
 
 .img-preview {
@@ -167,6 +257,7 @@ cp-project {
     width: 100%;
     display: block;
   }
+
 }
 
 .project-preview {
@@ -212,9 +303,4 @@ cp-project {
 }
 
 @media (min-width: 992px) {
-	#sidebar {
-		z-index: 999;
-		display: table;
-		position: fixed;
-	}
 }

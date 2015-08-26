@@ -1,0 +1,85 @@
+// Animations
+
+// Open
+@keyframes topOpen {
+  0% {
+    top: 10px;  
+  }
+  50% {
+    top: calc(50% - 3px);
+    transform: rotate(0deg);
+  }
+  100% {    
+    transform: rotate(45deg);
+    top: calc(50% - 3px);
+  }
+}
+@keyframes middleOpen {
+  0% {
+    width: 80%;
+    top: calc(50% - 3px);
+  }
+  50% {
+    width: 0;
+    top: calc(50% - 3px);
+  }
+  100% {
+    width: 0;
+    top: calc(50% - 3px);
+  }  
+}
+@keyframes bottomOpen {
+  0% {
+    top: 32px;
+  }
+  50% {
+    top: calc(50% - 3px);
+    transform: rotate(0deg);
+  }
+  100% {    
+    transform: rotate(-45deg);
+    top: calc(50% - 3px);
+  }
+}
+
+// Closed
+@keyframes topClosed {
+  0% {
+    transform: rotate(45deg);
+    top: calc(50% - 3px);
+  }
+  50% {
+    top: calc(50% - 3px);
+    transform: rotate(0deg);
+  }
+  100% {    
+    top: 10px;  
+  }
+}
+@keyframes middleClosed {
+  0% {
+    width: 0;
+    top: calc(50% - 3px);
+  }
+  50% {
+    width: 80%;
+    top: calc(50% - 3px);
+  }
+  100% {
+    width: 80%;
+    top: calc(50% - 3px);
+  }  
+}
+@keyframes bottomClosed {
+  0% {
+    transform: rotate(-45deg);
+    top: calc(50% - 3px);
+  }
+  50% {
+    top: calc(50% - 3px);
+    transform: rotate(0deg);
+  }
+  100% {    
+    top: 32px;
+  }
+}
