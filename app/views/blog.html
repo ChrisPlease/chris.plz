@@ -21,7 +21,7 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">
 					{{post.title}} <small>&mdash; by {{post.author}} <i ng-if="post.edited">(edited)</i></small>
-					<span class="badge pull-right" ng-show="signedIn" ng-click="deletePost(post)">delete</span>
+					<span class="badge pull-right" ng-show="signedIn()" ng-click="deletePost(post)">delete</span>
 				</h3>
 			</div>
 			<div class="panel-body">

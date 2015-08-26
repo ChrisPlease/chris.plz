@@ -16,12 +16,14 @@ app.directive('cpPrimaryNav', ['$document', 'Nav', function($document, Nav) {
 			$document.mouseup(function(e) {
 				if(!btn.is(e.target) && btn.has(e.target).length === 0 && btn.hasClass('active')) {
 					btn.removeClass('active');
+					body.removeClass('menu-open');
 					elem.removeClass('active');
 				}
 			});
 
 			btn.on('click', function(e) {
 				btn.toggleClass('active');
+				body.toggleClass('menu-open');
 				elem.toggleClass('active');
 			});
 		}

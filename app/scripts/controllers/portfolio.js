@@ -14,11 +14,13 @@ app.controller('PortfolioCtrl', function ($scope, Auth, Portfolio, fileReader) {
 
 	$scope.project = {
 		title: '',
+		tech: '',
+		launch: new Date(),
 		image: null
 	};
 
 	$scope.createProject = function(project) {
-
+		console.log(project);
 		Portfolio.createProject(project);
 		$scope.project.title = '';
 		$scope.project.image = null;

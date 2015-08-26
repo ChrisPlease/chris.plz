@@ -17,8 +17,16 @@ app.directive('cpPreview', [function() {
 					};
 
 					img.src = newData;
-					elem.append('<span class="pull-right badge">delete</span>');
+					elem.append('<span class="delete pull-right badge">delete</span>');
 					elem.append(img);
+
+					var btn = angular.element('.delete');
+
+					btn.on('click', function(e) {
+						console.log(elem);
+						elem.html('');
+						console.log(scope.project.image);
+					});
 				}
 			});
 		}

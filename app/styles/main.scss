@@ -23,6 +23,9 @@ body {
   background-color: #bada55;
   // background-color: #ccc;
   padding-bottom: 64px;
+  &.menu-open {
+    overflow: hidden;
+  }
 }
 
 canvas, img {
@@ -182,10 +185,13 @@ cp-project {
   }
 }
 
+/* Sidebar */
 
 #sidebar {
 	background: rgba(0, 0, 0, .85);
+  min-height: 100%;
 	height: 100%;
+  height: 100vh;
   width: 300px;
   left: -300px;
   bottom: 0;
@@ -194,10 +200,13 @@ cp-project {
   display: table;
   transition: .4s ease-in-out;
   z-index: 499;
+
   &.active {
     left: 0;
   }
   .nav {
+    width: 90%;
+    margin: 0 auto;
     > li > a {
       &:hover, &:focus, &:active {
         background: transparent;
@@ -234,27 +243,29 @@ cp-project {
       color: darken(white, 30%);
       display: block;
       text-align: center;
-      //font-size: 32px;
-      //font-family: 'Great Vibes', cursive;
+      // font-size: 32px;
+      // font-family: 'Great Vibes', cursive;
       text-shadow: 0 0 0;
+      font-size: 24px;
+      font-weight: 100;
       &:hover, &:active &:focus {
         color: white;
         text-shadow: 0 0 3px white;
       }
     }
   }
+  .panel {
+    width: 90%;
+    margin: 32px auto 0;
+    a {
+      &:hover, &:active, &:focus {
+        color: black;
+      }
+    }
+  }
 }
 
 /* Nav Styles */
-
-.nav {
-  width: 90%;
-  margin: 0 auto;
-  a {
-    font-size: 24px;
-    font-weight: 100;
-  }
-}
 
 .navbar-nav > li {
   float: none !important;

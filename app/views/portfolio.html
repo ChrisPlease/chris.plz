@@ -13,8 +13,8 @@
 	</div>
 
 </div>
-<div class="row" ng-repeat="project in projects | orderBy: 'datetime':true">
-	<cp-project></cp-project>
+<div class="row">
+	<cp-project ng-repeat="project in projects | orderBy: 'datetime':true"></cp-project>
 </div>
 
 

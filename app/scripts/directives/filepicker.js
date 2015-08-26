@@ -5,7 +5,7 @@ app.directive('cpFilePicker', ['fileReader', 'Resizer', function(fileReader, Res
 		transclude: true,
 		restrict: 'E',
 		replace: true,
-		template: '<input type="file" class="form-control" />',
+		template: '<input class="btn" type="file" class="form-control" />',
 		link: function(scope, elem, attrs) {
 
 			// Variables
@@ -18,7 +18,6 @@ app.directive('cpFilePicker', ['fileReader', 'Resizer', function(fileReader, Res
 
 			// Bind the File input for changes
 			elem.bind('change', function(e) {
-
 				// Use the fileReader service to get data URL of the first file
 				fileReader.readAsDataUrl(e.target.files[0], scope)
 					.then(function(data) {
@@ -27,6 +26,7 @@ app.directive('cpFilePicker', ['fileReader', 'Resizer', function(fileReader, Res
 
 						scope.project.image = canvas.toDataURL();
 					});
+					
 			});
 		}
 	};

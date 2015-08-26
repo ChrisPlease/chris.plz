@@ -15,12 +15,22 @@
 						</div>
 						<br />
 						<div class="input-group">
+							<div class="input-group-addon"><span class="glyphicon glyphicon-gear"></span></div>
+							<input type="text" ng-model="project.tech" placeholder="Built With" required class="form-control" />
+						</div>
+						<br />
+						<label>Launch Date:</label>
+						<div class="input-group">
+							<div class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></div>
+							<input type="date" ng-model="project.launch" placeholder="Launched" required class="form-control" />
+						</div>
+						<br />
+						<div class="input-group">
 							<div class="input-group-addon"><span class="glyphicon glyphicon-picture"></span></div>
-							<cp-file-picker max-height="400" max-width="800" ng-model="project.image" accept="image/*"></cp-file-picker>
+							<cp-file-picker max-height="400" max-width="800" ng-model="project.image" accept="image/*">Upload an Image</cp-file-picker>
 						</div>
 						<br />
 						<div class="input-group project-preview">
-							<a href="" ng-show="project.image.length > 0" class="label label-as-badge label-danger pull-right">(clear)</a>
 							<cp-preview></cp-preview>
 						</div>
 						<input class="btn btn-primary" type="submit" value="Submit">

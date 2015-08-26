@@ -8,7 +8,9 @@ app.factory('Portfolio', function(FURL, $firebaseArray) {
 		all: projects,
 
 		createProject: function(project) {
-			project.datetime = Firebase.ServerValue.TIMESTAMP;
+			console.log(project);
+			project.launch = project.launch.toString();
+			console.log(project);
 			return projects.$add(project);
 
 		},
